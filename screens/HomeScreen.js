@@ -12,14 +12,14 @@ export default function HomeScreen({navigation}) {
             </View>
             <View style={estilos.botao}>
                 <Button
-                    title='Ir para Sobre'
-                    onPress={() => navigation.navigate('About')}
+                    title='Ir para Calculadora'
+                    onPress={() => navigation.navigate('Calculadora')}
                 />
             </View>
             <View style={estilos.botao}>
                 <Button
-                    title='Ir para Produto'
-                    onPress={() => navigation.navigate('Product')}
+                    title='Ir para IMC'
+                    onPress={() => navigation.navigate('IMC')}
                 />
             </View>
         </View>
