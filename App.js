@@ -1,5 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import {MaterialIcons} from '@expo/vector-icons'
 
 
 import HomeScreen from "./screens/HomeScreen";
@@ -7,17 +8,45 @@ import DetailsScreen from './screens/DetailsScreen';
 import CalculadoraScreen from './screens/CalculadoraScreen';
 import ImcScreen from './screens/ImcScreen';
 
-const Stack = createStackNavigator()
+const Tab = createBottomTabNavigator()
 
-export default function AppStack(){
+export default function AppTabs(){
   return(
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
-        <Stack.Screen name='Home' component={HomeScreen}  />
-        <Stack.Screen name='Details' component={DetailsScreen} />
-        <Stack.Screen name='Calculadora' component={CalculadoraScreen} />
-        <Stack.Screen name='IMC' component={ImcScreen} />
-      </Stack.Navigator>
+      <Tab.Navigator initialRouteName='Home'>
+        <Tab.Screen name='Home' 
+        component={HomeScreen} 
+        options={{
+          title: 'Início',
+          tabBarIcon:({color, size}) => (
+            <MaterialIcons name='home' color={color} size={size}/>
+          )
+        }}/>
+        <Tab.Screen name='Details'
+         component={DetailsScreen} 
+         options={{
+          title: 'Detalhes',
+          tabBarIcon:({color, size}) => (
+            <MaterialIcons name='airplanemode-active' color={color} size={size}/>
+          )
+        }}/>
+        <Tab.Screen name='Calculadora' 
+        component={CalculadoraScreen} 
+        options={{
+          title: 'Calculadora',
+          tabBarIcon:({color, size}) => (
+            <MaterialIcons name='assistant' color={color} size={size}/>
+          )
+        }}/>
+        <Tab.Screen name='IMC'
+        component={ImcScreen}
+        options={{
+          title: 'IMC',
+          tabBarIcon:({color, size}) => (
+            <MaterialIcons name='propane-tank' color={color} size={size}/>
+          )
+        }}/>
+      </Tab.Navigator>
     </NavigationContainer>
   )
 }
