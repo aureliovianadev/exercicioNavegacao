@@ -8,7 +8,7 @@ export default function ImcScreen(){
     const [altura, setAltura] = useState('')
     const [imc, setImc] = useState('')
 
-    function IMC() {
+    function calcularimc() {
         setImc( parseInt(massa) / ( parseFloat(altura) * parseFloat(altura)))
     }
     
@@ -18,7 +18,7 @@ export default function ImcScreen(){
 
             <TextInput
                 placeholder="Digite o seu peso"
-                value={massa1}
+                value={massa}
                 onChangeText={setMassa}
             />
 
@@ -31,18 +31,18 @@ export default function ImcScreen(){
         <View style={estilos.botao}>
         <Button
           title="IMC"
-          onPress={() => imc()}
+          onPress={() => calcularimc()}
           />
       </View>
 
-       <Text>Resultado: {imc} 
+       <Text style={estilos.resultado}>Resultado: {imc} </Text>
 
-        Menor que 18,5	Magreza	0
-        Entre 18,5 e 24,9	Normal	0
-        Entre 25,0 e 29,9	Sobrepeso	I
-        Entre 30,0 e 39,9	Obesidade	II
-        Maior que 40,0	Obesidade Grave	III
-       </Text>
+       <Text> Menor que 18,5	Magreza	0 </Text>
+        <Text>Entre 18,5 e 24,9	Normal	0</Text>
+        <Text>Entre 25,0 e 29,9	Sobrepeso	I</Text>
+        <Text>Entre 30,0 e 39,9	Obesidade	II</Text>
+        <Text>Maior que 40,0	Obesidade Grave	III</Text>
+       
        
         </View>    
     ) 
@@ -53,3 +53,5 @@ const estilos = StyleSheet.create({
     marginVertical: 10
   }
 })
+
+
